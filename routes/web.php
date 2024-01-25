@@ -16,15 +16,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', function () {
     $titolo = 'COMBO_FIT';
     return view('home', compact('titolo'));
-});
+})->name('home');
 
 
 Route::get('/articoli', function () {
-    $titolo1 = 'Come Eseguire Lo Squat';
-    return view('articoli', compact('titolo1'));
-});
+    
+    $articoli = [['titolo'=> 'SQUAT', 'descrizione'=>'Lo squat è il re degli esercizi per le gambe', 'categoria' =>'Gambe'],
+    ['titolo'=> 'PANCA PIANA', 'descrizione'=>'Esercizio focalizzato per il petto con una sua specifica tecnica', 'categoria' =>'Petto'],
+    ['titolo'=> 'STACCO', 'descrizione'=>'Fondamentale per costruire una schiena possente', 'categoria' =>'Dorso']];
+        
+
+    $titolo1 = 'I FONDAMENTALI';
+    return view('articoli', compact('titolo1'),['articoli'=> $articoli]);
+})->name('articoli');
+
+//rotta parametrica
+Route::get('/articoli/{id}', function($id){
+
+    $articoli = [['titolo'=> 'SQUAT', 'descrizione'=>'Lo squat è il re degli esercizi per le gambe', 'categoria' =>'Gambe'],
+    ['titolo'=> 'PANCA PIANA', 'descrizione'=>'Esercizio focalizzato per il petto con una sua specifica tecnica', 'categoria' =>'Petto'],
+    ['titolo'=> 'STACCO', 'descrizione'=>'Fondamentale per costruire una schiena possente', 'categoria' =>'Dorso']];
+
+   return view('dettaglio', ['articolo'=> $articoli[$id]]);
+})->name('articoli.dettaglio');
 
 Route::get('/chi_sono', function () {
     $titolo2 = 'Chi Sono ?';
     return view('chi_sono', compact('titolo2'));
-});
+})->name('contatti');
