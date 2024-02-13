@@ -4,6 +4,8 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
+
+<add_inclusion_path>/PHPUnit/tests</add_inclusion_path>
     <testsuites>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>

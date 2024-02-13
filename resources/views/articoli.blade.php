@@ -16,6 +16,7 @@
     <a href= "{{ route('articoli') }}" >Articoli</a>
     <a href= "{{ route('contatti') }}" >Chi Sono</a>
     <a href= "{{ route('home') }}" >Home</a>
+    
 
  <div class="row">
     @foreach ($articoli as $chiave => $articolo)
